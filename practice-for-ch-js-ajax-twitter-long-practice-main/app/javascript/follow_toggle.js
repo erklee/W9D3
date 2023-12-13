@@ -2,7 +2,10 @@ import { API, broadcast } from "./util";
 
 export default class FollowToggle {
   constructor(toggleButton) {
-    // Your code here
+    
+    this.toggleButton = toggleButton
+
+    this.toggleButton.addEventListener('click', handleClick.bind(this)) 
   }
 
   async handleClick(event) {
@@ -23,11 +26,11 @@ export default class FollowToggle {
     }
   }
 
-  get followState() {
+  get followState() { // getter ==> see links for syntax
     return this.toggleButton.dataset.followState;
   }
 
-  set followState(newState) {
+  set followState(newState) { //setter
     this.toggleButton.dataset.followState = newState;
     this.render();
   }
